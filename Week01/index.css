@@ -1,0 +1,9 @@
+figure {
+    align-items: center;
+}
+
+figure img {}
+
+figure figcaption {
+    text-align: center;
+}
