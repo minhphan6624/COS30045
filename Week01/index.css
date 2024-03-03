@@ -1,5 +1,5 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Tahoma, Helvetica, sans-serif;
     /* background-color: lightskyblue; */
     margin-left: auto;
 }
@@ -30,6 +30,22 @@ ul {
 ul li {
     font-size: 18px;
     margin: 5px;
+}
+
+.button-container {
+    display: block;
+    margin: 10px 10px;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: lightgreen;
+    font-weight: bold;
+    font-size: larger;
+    border-radius: 15px;
 }
 
 figure {

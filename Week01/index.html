@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="index.css">
 
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -28,18 +29,27 @@
         <li>better mental health</li>
         <li>joy and happiness.</li>
     </ul>
+
+    <div class="button-container">
+        <button onclick="changeFig(0)">2019</button>
+        <button onclick="changeFig(1)">2021</button>
+        <button onclick="changeFig(2)">Both</button>
+    </div>
+
     <figure>
-        <img src="img/pet_ownership_in_australia_table.png" alt="pet ownership table" height="600px">
-        <figcaption>Fig 1. Comparison of Pet Ownership in 2019 and 2022</figcaption>
+        <img id="figImg" src="img/Pets2019.png" alt="pet ownership table" height="600px">
+        <figcaption id="figCap"> Figure 1. Australian Pet Ownership in 2019 </figcaption>
     </figure>
 
-    <p class="main-text">With the increase in pet ownership the AMA are encouraging policy makers to consider the needs
+    <p class="main-text">With the increase in pet ownership the AMA are encouraging policy makers to consider the
+        needs
         of companion
-        animals and their owners when considering rental, strata and body corporate regulations are well as accepting
+        animals and their owners when considering rental, strata and body corporate regulations are well as
+        accepting
         animals in public places and transport.
     </p>
     <footer>COS30045 Data Visualisation</footer>
-
 </body>
+
 
 </html>
