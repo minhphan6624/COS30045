@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Data Visualization">
+    <meta name="keywords" content="HTML, CSS, D3">
+    <meta name="author" content="Quang Minh Phan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2.1 D3 Data Binding</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <h1> The D3 Journey starts here</h1>
+
+    <script>
+        var dataset = [14, 1, 12, 2, 13, 3]
+        d3.select("body").selectAll("p")
+            .data(dataset)
+            .enter()
+            .append("p")
+            .text(function (d) {
+                return "Joe watched " + d + " cat videos today!";
+            })
+            .style("color", (d) => {
+                return d > 10 ? "red" : "black";
+            })
+
+
+    </script>
+
+    <footer style="color: grey"> COS30045 - Data Visualization <br>
+        Quang Minh Phan</footer>
+</body>
+
+</html>
