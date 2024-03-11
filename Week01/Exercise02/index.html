@@ -7,7 +7,7 @@
     <meta name="keywords" content="HTML, CSS" />
     <meta name="author" content="Quang Minh Phan" />
 
-    <title>Pets and the Pandemic</title>
+    <title>Task 1.2 - Javascript</title>
 
     <link rel="stylesheet" href="index.css">
 
@@ -16,6 +16,7 @@
 
 <body>
 
+    <!-- Headings -->
     <h1>Pets and the Pandemic</h1>
     <h2 class="author">Quang Minh Phan</h2>
 
@@ -31,11 +32,11 @@
     </ul>
 
     <div class="button-container">
-        <button onclick="changeFig(0)">2019</button>
-        <button onclick="changeFig(1)">2021</button>
-        <button onclick="changeFig(2)">Both</button>
+        <button style="background-color: red;" onclick="changeFig(0)">2019</button>
+        <button style="background-color: lightgreen;" onclick="changeFig(1)">2021</button>
+        <button style="background-color: orange;" onclick="changeFig(2)">Both</button>
     </div>
-
+    <!-- Main Figure -->
     <figure>
         <img id="figImg" src="img/Pets2019.png" alt="pet ownership table" height="600px">
         <figcaption id="figCap"> Figure 1. Australian Pet Ownership in 2019 </figcaption>
@@ -48,6 +49,18 @@
         accepting
         animals in public places and transport.
     </p>
+
+    <section class="gallery-container">
+        <h2 class="gallery-heading">
+            Top 3 Favorite Animals in Australia
+        </h2>
+        <div class="gallery">
+            <img src="img/cat.jpg" alt="A lovely tabby cat" class="pet-image">
+            <img src="img/dog.png" alt="A cheerful golden retriever" class="pet-image">
+            <img src="img/fish.jpg" alt="A colorful goldfish" class="pet-image">
+        </div>
+    </section>
+
     <footer>COS30045 Data Visualisation</footer>
 </body>
 

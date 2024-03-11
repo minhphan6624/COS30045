@@ -6,7 +6,7 @@ function init() {
 
     const padding = 1;
 
-    d3.csv("Task_2.4_Data.csv").then((data) => {
+    d3.csv("Task_2.4_data.csv").then((data) => {
         console.log(data);
         wombatSightings = data;
 
