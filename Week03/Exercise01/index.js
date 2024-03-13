@@ -1,10 +1,9 @@
+let padding = 10;
 
-var padding = 20;
+let w = 600;
+let h = 200;
 
-var w = 600;
-var h = 300;
-
-var dataset = [
+let dataset = [
     [5, 20, 5],
     [500, 90, 8],
     [250, 50, 10],
@@ -19,31 +18,16 @@ var dataset = [
     [700, 50, 10]
 ];
 
-var svg = d3.select("body").append("svg").attr("width", w).attr("height", h); //Creating the SVG
-
-let xScale = d3.scaleLinear()
+var xScale = d3.scaleLinear()
     .domain([d3.min(dataset, (d => { return d[0]; })), d3.max(dataset, (d => { return d[0]; }))])
     .range([padding, w - padding]);
 
-let yScale = d3.scaleLinear()
+var yScale = d3.scaleLinear()
     .domain([d3.max(dataset, (d => { return d[1]; })), d3.min(dataset, (d => { return d[1]; }))])
     .range([padding, h - padding]);
 
-var xAxis = d3.axisBottom()
-    .ticks(5)
-    .scale(xScale);
+var svg = d3.select("body").append("svg").attr("width", w).attr("height", h); //Creating the SVG
 
-var yAxis = d3.axisLeft()
-    .ticks(5)
-    .scale(yScale);
-
-svg.append("g")
-    .attr("transform", "translate(0, " + (h - padding) + ")")
-    .call(xAxis);
-
-svg.append("g")
-    .attr("transform", "translate(" + padding + ",0)")
-    .call(yAxis);
 
 svg.selectAll("circle")
     .data(dataset).enter()
@@ -66,10 +50,10 @@ svg.selectAll("text")
     .enter()
     .append("text")
     .text((d) => {
-        return (d[0] + "," + d[1]);
+        return d[0] + "," + d[1];
     })
     .attr("x", (d, i) => {
-        return xScale(d[0]);
+        return xScale(d[0]) - 5;
     })
     .attr("y", (d) => {
         return yScale(d[1]);
