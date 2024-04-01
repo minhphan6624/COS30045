@@ -7,13 +7,13 @@
     <meta name="keywords" content="HTML, CSS, D3">
     <meta name="author" content="Quang Minh Phan">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 2.2 D3 Bar Chart</title>
+    <title>Task 2.2 - Bar Chart</title>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
 <body>
-    <h1> The D3 Journey starts here</h1>
+    <h1> Drawing with Data - Bar Chart </h1>
 
     <script>
         var w = 500;
@@ -48,7 +48,7 @@
                 return d;
             })
             .attr("x", (d, i) => {
-                return i * (w / dataset.length) + (w / dataset.length)/2 - 5; //Position the text to be in the middle
+                return i * (w / dataset.length) + (w / dataset.length) / 2 - 5; //Position the text to be in the middle
             })
             .attr("y", (d) => {
                 return h - (d * 4) + 15; //Text inside the column 

@@ -7,13 +7,13 @@
     <meta name="keywords" content="HTML, CSS, D3">
     <meta name="author" content="Quang Minh Phan">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 2.1 D3 Data Binding</title>
+    <title>Task 2.3 - Scatter Plot</title>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
 <body>
-    <h1> The D3 Journey starts here</h1>
+    <h1> Drawing with Data - Scatter Plot</h1>
 
     <script>
         var w = 600;
@@ -21,34 +21,34 @@
 
         var dataset = [
             [5, 20, 5],
-            [480, 90, 10],
-            [250, 50, 15],
-            [100, 33, 10],
-            [330, 95, 12],
-            [410, 12, 14],
+            [480, 90, 8],
+            [250, 50, 10],
+            [100, 33, 5],
+            [330, 95, 8],
+            [410, 12, 4],
             [475, 44, 15],
-            [25, 67, 25],
+            [25, 67, 5],
             [85, 21, 5],
             [220, 88, 10]
         ]
 
-        var padding = 1;
-
-        var svg = d3.select("body").append("svg").attr("width", w).attr("height", h);
+        var svg = d3.select("body").append("svg").attr("width", w).attr("height", h); //Creating the SVG
 
         svg.selectAll("circle")
             .data(dataset).enter()
             .append("circle")
-            .attr("cx", (d, i) => {
+            .attr("cx", (d, i) => { //x coordinate of the data point
                 return d[0];
             })
-            .attr("cy", (d, i) => {
+            .attr("cy", (d, i) => { //y coordinate of the data point
                 return d[1];
             })
-            .attr("r", (d) => {
+            .attr("r", (d) => { //Radius
                 return d[2];
             })
-            .attr("fill", "slategrey");
+            .attr("fill", (d) => {
+                return (d[0] < (w / 2)) ? "red" : "grey"; // Data points on the left half of the svg turns red
+            });
 
         svg.selectAll("text")
             .data(dataset)
