@@ -1,0 +1,15 @@
+.button-container {
+    display: block;
+    margin: 10px 10px;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    color: darkblue;
+    font-weight: bold;
+    font-size: larger;
+    border-radius: 15px;
+}
