@@ -14,7 +14,23 @@ var yScale = d3.scaleLinear()
     .domain([0, d3.max(dataset)])
     .range([0, h]);
 
+    var xAxis = d3.axisBottom()
+    .ticks(5)
+    .scale(xScale);
+
+    var yAxis = d3.axisLeft()
+    .ticks(5)
+    .scale(yScale);
+
 var svg = d3.select("body").append("svg").attr("width", w).attr("height", h);
+
+svg.append("g")
+    .attr("transform", "translate(0, " + (h - padding) + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("transform", "translate(" + padding + ",0)")
+    .call(yAxis);
 
 //Drawing the bars
 svg.selectAll("rect")
@@ -64,7 +80,6 @@ d3.select(".add").on("click", () => {
 
     // Rebind the new data to the existing bars, return the update selection
     var bars = svg.selectAll("rect").data(dataset);
-
 
     bars.enter()							
         .append("rect")							//Creates a new rect

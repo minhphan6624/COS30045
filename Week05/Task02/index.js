@@ -146,7 +146,7 @@ d3.select(".trans1").on("click", () => {
         });
 });
 
-//Transition 2
+//Transition 3
 d3.select(".trans2").on("click", () => {
 
     let numValues = dataset.length;

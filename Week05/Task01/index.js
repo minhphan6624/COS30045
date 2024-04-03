@@ -1,7 +1,7 @@
 var w = 700;
 var h = 200;
 
-var dataset = [14, 10, 12, 5, 13, 6, 9, 20, 25, 40];
+var dataset = [14, 10, 12, 5, 13, 6, 9, 20, 25];
 
 var padding = 1;
 
@@ -59,7 +59,7 @@ d3.select("button").on("click", () => {
     dataset = [];
 
     for (var i = 0; i < numValues; i++) {
-        var newNum = Math.floor(Math.random() * 30);
+        var newNum = Math.floor(Math.random() * 25);
         dataset.push(newNum);
     }
 
