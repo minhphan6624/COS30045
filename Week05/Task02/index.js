@@ -60,7 +60,7 @@ d3.select(".update").on("click", () => {
     dataset = [];
 
     for (var i = 0; i < numValues; i++) {
-        var newNum = Math.floor(Math.random() * 30);
+        var newNum = Math.floor(Math.random() * 25);
         dataset.push(newNum);
     }
 
@@ -68,7 +68,7 @@ d3.select(".update").on("click", () => {
         .data(dataset)
         .transition()
         .delay((d, i) => {
-            return i / dataset.length * 100;
+            return i/dataset.length * 100;
         })
         .duration(1000)
         .ease(d3.easeBounceOut)
@@ -84,7 +84,7 @@ d3.select(".update").on("click", () => {
         .data(dataset)
         .transition()
         .delay((d, i) => {
-            return i / dataset.length * 100
+            return i/dataset.length * 100;
         })
         .duration(1000)
         .ease(d3.easeBounceOut)
@@ -99,7 +99,7 @@ d3.select(".update").on("click", () => {
         });
 });
 
-//Transition 1
+//Transition 2
 d3.select(".trans1").on("click", () => {
 
     let numValues = dataset.length;
@@ -107,14 +107,17 @@ d3.select(".trans1").on("click", () => {
     dataset = [];
 
     for (var i = 0; i < numValues; i++) {
-        var newNum = Math.floor(Math.random() * 30);
+        var newNum = Math.floor(Math.random() * 25);
         dataset.push(newNum);
     }
 
     svg.selectAll("rect")
         .data(dataset)
         .transition()
-        .duration(2000)
+        .delay((d, i) => {
+            return i/dataset.length * 100;
+        })
+        .duration(1000)
         .ease(d3.easePolyInOut)
         .attr("y", (d) => {
             return h - yScale(d); //set base line at the bottom
@@ -122,12 +125,15 @@ d3.select(".trans1").on("click", () => {
         .attr("height", (d) => {
             return yScale(d);
         })
-        .attr("fill", "yellow");
+        .attr("fill", "pink");
 
     svg.selectAll("text")
         .data(dataset)
         .transition()
-        .duration(2000)
+        .delay((d, i) => {
+            return i/dataset.length * 100;
+        })
+        .duration(1000)
         .ease(d3.easePolyInOut)
         .text((d) => {
             return d;
@@ -148,14 +154,17 @@ d3.select(".trans2").on("click", () => {
     dataset = [];
 
     for (var i = 0; i < numValues; i++) {
-        var newNum = Math.floor(Math.random() * 30);
+        var newNum = Math.floor(Math.random() * 25);
         dataset.push(newNum);
     }
 
     svg.selectAll("rect")
         .data(dataset)
         .transition()
-        .duration(2000)
+        .delay((d, i) => {
+            return i * 100;
+        })
+        .duration(1000)
         .ease(d3.easeElasticOut)
         .attr("y", (d) => {
             return h - yScale(d); //set base line at the bottom
@@ -168,7 +177,10 @@ d3.select(".trans2").on("click", () => {
     svg.selectAll("text")
         .data(dataset)
         .transition()
-        .duration(2000)
+        .delay((d, i) => {
+            return i * 100;
+        })
+        .duration(1000)
         .ease(d3.easeElasticOut)
         .text((d) => {
             return d;
