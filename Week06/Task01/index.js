@@ -3,15 +3,18 @@ var h = 200;
 
 var dataset = [14, 10, 12, 5, 13, 6, 9, 20, 25, 40];
 
+// X axis scale
 var xScale = d3.scaleBand()
     .domain(d3.range(dataset.length))
     .rangeRound([0, w])
     .paddingInner(0.05);
 
+// Y Axis scale
 var yScale = d3.scaleLinear()
     .domain([0, d3.max(dataset)])
     .range([0, h]);
 
+// Create the SVG
 var svg = d3.select("body").append("svg").attr("width", w).attr("height", h);
 
 //Drawing the bars
@@ -40,7 +43,8 @@ svg.selectAll("rect")
             .transition()
             .duration(250)
             .attr("fill", "lightblue");
-    });
+    })
+    ;
 
 //Drawing the labels
 svg.selectAll("text")
@@ -100,9 +104,9 @@ d3.select(".add").on("click", () => {
         .attr("height", function (d) {			//Set new height value, based on the updated yScale
             return yScale(d);
         });
-        
-        svg.selectAll("rect").data(dataset)
-        
+
+    svg.selectAll("rect").data(dataset)
+
     //Update all labels
 
     labels.enter()
