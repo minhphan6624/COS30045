@@ -32,22 +32,6 @@ svg.selectAll("rect")
         return yScale(d);
     })
     .attr("fill", "grey")
-    // .on("mouseover", function () {
-    //     d3.select(this)
-    //         .transition()
-    //         .duration(250)
-    //         .attr("fill", "orange");
-    // })
-    // .on("mouseout", function () {
-    //     d3.select(this)
-    //         .transition()
-    //         .duration(250)
-    //         .attr("fill", "grey");
-    // })
-    // .append("title")
-    // .text((d) => {
-    //     return "This value is " + d;
-    // })
     .on("mouseover", function(event, d) {
 
         d3.select(this)
@@ -119,24 +103,7 @@ d3.select(".add").on("click", () => {
     
     var bars = svg.selectAll("rect").data(dataset);
 
-    bars
-    // .on("mouseover", function () {
-    //     d3.select(this)
-    //         .transition()
-    //         .duration(250)
-    //         .attr("fill", "orange");
-    // })
-    // .on("mouseout", function () {
-    //     d3.select(this)
-    //         .transition()
-    //         .duration(250)
-    //         .attr("fill", "grey");
-    // })
-    // .append("title")
-    // .text((d) => {
-    //     return "This value is " + d;
-    // })
-    .on("mouseover", function(event, d) {
+    bars.on("mouseover", function(event, d) {
 
         d3.select(this)
             .transition()
@@ -220,4 +187,30 @@ d3.select(".remove").on("click", () => {
 
 });
 
+var sortOrder = false;
 
+var sortBars = () => {
+
+    sortOrder = !sortOrder;    
+
+    svg.selectAll("rect")
+    .sort((a,b) => {
+        if (sortOrder)
+            return d3.ascending(a,b);
+        else 
+            return d3.descending(a,b);
+    })
+    .transition()
+    .delay(function(d, i) {
+        return i * 50;
+        })
+    .duration(400)
+    .attr("x", (d,i) => {
+        return xScale(i)
+    })
+}
+
+// Sorting
+d3.select(".sort").on("click", () => {
+    sortBars();    
+})
