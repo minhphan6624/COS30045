@@ -1,7 +1,7 @@
 var w = 700;
 var h = 200;
 
-var dataset = [14, 10, 12, 5, 13, 6, 9, 20, 25, 40];
+var dataset = [14, 10, 12, 5, 13, 6, 9, 20, 25, 30];
 
 var padding = 1;
 
@@ -56,19 +56,24 @@ svg.selectAll("text")
 d3.select(".update").on("click", () => {
 
     let numValues = dataset.length;
+    let maxValue = 50
 
     dataset = [];
 
     for (var i = 0; i < numValues; i++) {
-        var newNum = Math.floor(Math.random() * 25);
+        var newNum = Math.floor(Math.random() * maxValue);
         dataset.push(newNum);
     }
+
+    yScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset)])
+        .range([0, h]);
 
     svg.selectAll("rect")
         .data(dataset)
         .transition()
         .delay((d, i) => {
-            return i/dataset.length * 100;
+            return i / dataset.length * 100;
         })
         .duration(1000)
         .ease(d3.easeBounceOut)
@@ -84,7 +89,7 @@ d3.select(".update").on("click", () => {
         .data(dataset)
         .transition()
         .delay((d, i) => {
-            return i/dataset.length * 100;
+            return i / dataset.length * 100;
         })
         .duration(1000)
         .ease(d3.easeBounceOut)
@@ -111,11 +116,15 @@ d3.select(".trans1").on("click", () => {
         dataset.push(newNum);
     }
 
+    yScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset)])
+        .range([0, h]);
+
     svg.selectAll("rect")
         .data(dataset)
         .transition()
         .delay((d, i) => {
-            return i/dataset.length * 100;
+            return i / dataset.length * 100;
         })
         .duration(1000)
         .ease(d3.easePolyInOut)
@@ -131,7 +140,7 @@ d3.select(".trans1").on("click", () => {
         .data(dataset)
         .transition()
         .delay((d, i) => {
-            return i/dataset.length * 100;
+            return i / dataset.length * 100;
         })
         .duration(1000)
         .ease(d3.easePolyInOut)
@@ -157,6 +166,10 @@ d3.select(".trans2").on("click", () => {
         var newNum = Math.floor(Math.random() * 25);
         dataset.push(newNum);
     }
+
+    yScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset)])
+        .range([0, h]);
 
     svg.selectAll("rect")
         .data(dataset)

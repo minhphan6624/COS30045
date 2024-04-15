@@ -32,7 +32,7 @@ svg.selectAll("rect")
         return yScale(d);
     })
     .attr("fill", "grey")
-    .on("mouseover", function(event, d) {
+    .on("mouseover", function (event, d) {
 
         d3.select(this)
             .transition()
@@ -41,26 +41,26 @@ svg.selectAll("rect")
 
         var xPosition = parseFloat(d3.select(this).attr("x")) + xScale.bandwidth() / 2;
         var yPosition = parseFloat(d3.select(this).attr("y")) + 14;
-        
+
         svg.append("text")
             .attr("id", "tooltip")
             .attr("x", xPosition)
             .attr("y", yPosition)
             .attr("text-anchor", "middle")
-           .attr("font-family", "sans-serif")
-           .attr("font-size", "11px")
-           .attr("font-weight", "bold")
-           .attr("fill", "black")
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "11px")
+            .attr("font-weight", "bold")
+            .attr("fill", "black")
             .text(d);
     })
-    .on("mouseout", function() {
+    .on("mouseout", function () {
         d3.select(this)
-        .transition()
-        .duration(250)
-        .attr("fill", "grey");
+            .transition()
+            .duration(250)
+            .attr("fill", "grey");
 
         d3.select("#tooltip").remove();
-   })
+    })
     ;
 
 d3.select(".add").on("click", () => {
@@ -100,10 +100,10 @@ d3.select(".add").on("click", () => {
         .attr("height", function (d) {			//Set new height value, based on the updated yScale
             return yScale(d);
         })
-    
+
     var bars = svg.selectAll("rect").data(dataset);
 
-    bars.on("mouseover", function(event, d) {
+    bars.on("mouseover", function (event, d) {
 
         d3.select(this)
             .transition()
@@ -112,27 +112,27 @@ d3.select(".add").on("click", () => {
 
         var xPosition = parseFloat(d3.select(this).attr("x")) + xScale.bandwidth() / 2;
         var yPosition = parseFloat(d3.select(this).attr("y")) + 14;
-        
+
         svg.append("text")
             .attr("id", "tooltip")
             .attr("x", xPosition)
             .attr("y", yPosition)
             .attr("text-anchor", "middle")
-           .attr("font-family", "sans-serif")
-           .attr("font-size", "11px")
-           .attr("font-weight", "bold")
-           .attr("fill", "black")
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "11px")
+            .attr("font-weight", "bold")
+            .attr("fill", "black")
             .text(d);
     })
-    .on("mouseout", function() {
-        d3.select(this)
-        .transition()
-        .duration(250)
-        .attr("fill", "grey");
+        .on("mouseout", function () {
+            d3.select(this)
+                .transition()
+                .duration(250)
+                .attr("fill", "grey");
 
-        d3.select("#tooltip").remove();
-   })
-    ;
+            d3.select("#tooltip").remove();
+        })
+        ;
 
 });
 
@@ -191,26 +191,26 @@ var sortOrder = false;
 
 var sortBars = () => {
 
-    sortOrder = !sortOrder;    
+    sortOrder = !sortOrder;
 
     svg.selectAll("rect")
-    .sort((a,b) => {
-        if (sortOrder)
-            return d3.ascending(a,b);
-        else 
-            return d3.descending(a,b);
-    })
-    .transition()
-    .delay(function(d, i) {
-        return i * 50;
+        .sort((a, b) => {
+            if (sortOrder)
+                return d3.ascending(a, b);
+            else
+                return d3.descending(a, b);
         })
-    .duration(400)
-    .attr("x", (d,i) => {
-        return xScale(i)
-    })
+        .transition()
+        .delay(function (d, i) {
+            return i * 50;
+        })
+        .duration(400)
+        .attr("x", (d, i) => {
+            return xScale(i)
+        })
 }
 
 // Sorting
 d3.select(".sort").on("click", () => {
-    sortBars();    
+    sortBars();
 })

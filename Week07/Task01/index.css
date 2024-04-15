@@ -1,0 +1,22 @@
+.line {
+    fill: none;
+    stroke: slategray;
+    stroke-width: 0.5;
+}
+
+.halfMilMark {
+    fill: none;
+    stroke: red;
+    stroke-width: 1;
+    stroke-dasharray: 2;
+}
+
+.halfMilLabel {
+    font-family: sans-serif;
+    font-size: 11px;
+    color: red;
+}
+
+.area {
+    fill: slategray;
+}
