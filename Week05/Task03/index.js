@@ -123,13 +123,13 @@ d3.select(".remove").on("click", () => {
     dataset.pop();
 
     //Update scale domains
-    xScale.domain(d3.range(dataset.length));	//Recalibrate the x scale domain, given the new length of dataset
-    yScale.domain([0, d3.max(dataset)]);	//Recalibrate the x scale domain, given the new length of dataset
+    xScale.domain(d3.range(dataset.length));
+    yScale.domain([0, d3.max(dataset)]);
 
     //Select…
-    var bars = svg.selectAll("rect")			//Select all bars
+    var bars = svg.selectAll("rect")
         .data(dataset);							//Re-bind data to existing bars, return the 'update' selection
-    //'bars' is now the update selection
+
     var labels = svg.selectAll("text")
         .data(dataset)
 

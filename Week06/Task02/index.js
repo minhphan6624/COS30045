@@ -77,13 +77,13 @@ d3.select(".add").on("click", () => {
     var labels = svg.selectAll("text").data(dataset);
 
     bars.enter()
-        .append("rect")							//Creates a new rect
-        .attr("x", w)							//Sets the initial x position of the rect beyond the far right edge of the SVG
-        .attr("y", function (d) {				//Sets the y value, based on the updated yScale
+        .append("rect")
+        .attr("x", w)
+        .attr("y", function (d) {
             return h - yScale(d);
         })
-        .attr("width", xScale.bandwidth())		//Sets the width value, based on the updated xScale
-        .attr("height", function (d) {			//Sets the height value, based on the updated yScale
+        .attr("width", xScale.bandwidth())
+        .attr("height", function (d) {
             return yScale(d);
         })
         .attr("fill", "grey")
