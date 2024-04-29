@@ -12,6 +12,8 @@ function init() {
 
     var stack = d3.stack()
         .keys(["apples", "oranges", "grapes"])
+        .order(d3.stackOrderDescending);  // <-- Flipped stacking order
+
 
     var series = stack(dataset);
 
@@ -58,9 +60,7 @@ function init() {
         .attr("y", (d) => {
             return h - yScale(d[1]); //Baseline of the category
         })
-        .attr("width", (d, i) => {
-            return xScale.bandwidth();
-        })
+        .attr("width", xScale.bandwidth())
         .attr("height", (d) => {
             return yScale(d[1]) - yScale(d[0]); //Topline - baseline
         });

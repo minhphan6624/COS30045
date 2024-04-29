@@ -19,6 +19,7 @@ function init() {
 
     //Draw a line chart for a given dataset
     function lineChart(dataset) {
+        
         // Create the svg
         var svg = d3.select("#chart").append("svg").attr("width", w).attr("height", h);
 
@@ -53,11 +54,12 @@ function init() {
             .attr("transform", "translate(" + padding + ",0)")
             .call(yAxis);
 
-        // Drawing the line
+        // Create the line
         var line = d3.line()
             .x((d) => { return xScale(d.date) })
             .y((d) => { return yScale(d.number) });
 
+        //Draw the line with data
         svg.append("path")
             .datum(dataset)
             .attr("class", "line")
